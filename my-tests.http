@@ -1,0 +1,16 @@
+get http://localhost:3000
+
+###
+
+GET http://localhost:3000/api/cars
+
+###
+POST http://localhost:3000/api/addCar
+Content-Type: application/json
+
+{
+    "title":"cia2o2",
+    "brand":"br2and5",
+    "price":5102,
+    "age":2201
+}

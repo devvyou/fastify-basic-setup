@@ -9,3 +9,4 @@ const connectDb = () => {
 }
 
 module.exports = connectDb;
+// Exporting the connectDb function to app.js

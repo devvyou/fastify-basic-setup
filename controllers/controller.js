@@ -1,30 +1,23 @@
-// const getItemId = (req, reply) => {
-//     reply.send('getItemId');
-// }
+module.exports = {
 
-// const getHome = (req, reply) => {
-//     reply.send('getHome');
-// }
-
-// const getAuth = (req, reply) => {
-//     reply.send('getAuth');
-// }
-
-// module.exports = {
-//     getItemId,
-//     getHome,
-//     getAuth
-// }
-
-function itemControllers(fastify, options, done) {
-
-    // Get all items
-    const getAuth = function (req, reply) {
+    getAuth: (req, reply) => {
         reply.send('getAuth');
+    },
+
+    getHome: (req, reply) => {
+        reply.send(reply.raw.scriptNonce)
+    },
+
+    getGzip: (req, reply) => {
+        if (req.headers['x-no-compression']) {
+            return false;
+        }
+        reply.send('getGzip')
+    },
+
+    getGenres: (req, reply) => {
+        console.log(fastify.music());
+        reply.send(fastify.music()); // plugins/index.js
     }
 
-    return done()
-
-};
-
-module.exports = itemControllers;
+}
